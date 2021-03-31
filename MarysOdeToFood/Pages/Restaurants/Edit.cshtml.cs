@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MarysOdeToFood.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OdeToFood.Data;
 
 namespace MarysOdeToFood.Pages.Restaurants
@@ -12,15 +13,18 @@ namespace MarysOdeToFood.Pages.Restaurants
     public class EditModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
-
+        private readonly IHtmlHelper htmlHelper;
         public Restaurant Restaurant { get; set; }
-
-        public EditModel(IRestaurantData restaurantData)
+        public IEnumerable<SelectListItem> Cuisines { get; set; }
+        public EditModel(IRestaurantData restaurantData,
+                        IHtmlHelper htmlHelper)
         {
             this.restaurantData = restaurantData;
+            this.htmlHelper = htmlHelper;
         }
         public IActionResult OnGet(int restaurantId)
         {
+            Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
             Restaurant = restaurantData.GetById(restaurantId);
             if(Restaurant == null)
             {
