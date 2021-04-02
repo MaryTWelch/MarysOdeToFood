@@ -59,6 +59,7 @@ namespace MarysOdeToFood.Pages.Restaurants
                 restaurantData.Add(Restaurant);
             }
             restaurantData.Commit();
+            TempData["Message"] = "Restaurant saved!";
             return RedirectToPage("./Detail", new { restaurantId = Restaurant.Id });
         }
     }
