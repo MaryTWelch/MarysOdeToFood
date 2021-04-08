@@ -9,7 +9,7 @@ using OdeToFood.Data;
 namespace OdeToFood.Data.Migrations
 {
     [DbContext(typeof(OdeToFoodDbContext))]
-    [Migration("20210408015900_initialcreate")]
+    [Migration("20210408022204_initialcreate")]
     partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
