@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MarysOdeToFood.Core;
 using OdeToFood.Data;
 
-namespace MarysOdeToFood
+namespace MarysOdeToFood.Api
 {
     [Route("api/[controller]")]
     [ApiController]
