@@ -10,7 +10,7 @@
     <script>
 
         $(function () {
-            $.ajax("api/restaurants/",
+            $.ajax("../api/restaurants/",
                 { method: "get" })
                 .then(function (response) {
                     console.dir(response);
