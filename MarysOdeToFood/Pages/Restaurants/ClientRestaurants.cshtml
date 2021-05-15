@@ -6,11 +6,24 @@
 
 <h2>Client Restaurants</h2>
 
+<table class="table" id="restaurants">
+
+</table>
+
 @section Scripts {
     <environment include="Development">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/datatables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.24/datatables.min.css" />
+        <!--
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.24/datatables.min.css" />
+
         <script src="~\..\..\..\node_modules\datatables.net\js\jquery.dataTables.js"></script>
         <script src="~\..\..\..\node_modules\datatables.net-bs\js\dataTables.bootstrap.js"></script>
         <link href="~\..\..\..\node_modules\datatables.net-bs\css\dataTables.bootstrap.css" rel="stylesheet" />
+    -->
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.24/datatables.min.css" />
@@ -23,9 +36,15 @@
                 $.ajax("../api/restaurants/",
                     { method: "get" })
                     .then(function (response) {
-
                         //using datatables.net (JQuery plugin)
-
+                        $("#restaurants").dataTable({
+                            data: response,
+                            columns: [
+                                { "data": "name" },
+                                { "data": "location" },
+                                { "data": "cuisine" }
+                            ]
+                        });
                     });
             });
 
