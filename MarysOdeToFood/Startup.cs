@@ -25,7 +25,6 @@ namespace MarysOdeToFood
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddDbContextPool<OdeToFoodDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MarysOdeToFoodDb"));
@@ -36,10 +35,14 @@ namespace MarysOdeToFood
             services.AddRazorPages();
 
             services.AddControllers();
+
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#pragma warning disable CS0618 // Type or member is obsolete
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env) //IWebHostEnvironment env)
+#pragma warning restore CS0618 // Type or member is obsolete
         {
             if (env.IsDevelopment())
             {
@@ -54,6 +57,10 @@ namespace MarysOdeToFood
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules(env);
+            app.UseCookiePolicy();
+
+            app.UseMvc();
 
             app.UseRouting();
 
