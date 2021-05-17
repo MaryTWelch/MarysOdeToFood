@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace MarysOdeToFood
 {
+    //5-16: watching first few videos in 'Working with the Internals of ASP.NET Core'
     public class Program
     {
         public static void Main(string[] args)
