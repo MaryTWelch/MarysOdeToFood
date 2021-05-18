@@ -40,6 +40,7 @@ namespace MarysOdeToFood
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // 5-17: learning about middleware
 #pragma warning disable CS0618 // Type or member is obsolete
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env) //IWebHostEnvironment env)
 #pragma warning restore CS0618 // Type or member is obsolete
