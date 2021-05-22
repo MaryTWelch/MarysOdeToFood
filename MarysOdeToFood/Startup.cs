@@ -23,6 +23,7 @@ namespace MarysOdeToFood
 
         public IConfiguration Configuration { get; }
 
+        //5/21/21- learning about publishing app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
