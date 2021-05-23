@@ -32,7 +32,8 @@ namespace MarysOdeToFood
                 options.UseSqlServer(Configuration.GetConnectionString("MarysOdeToFoodDb"));
             });
 
-            services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            //services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
 
             services.AddRazorPages();
 
